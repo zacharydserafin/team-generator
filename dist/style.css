@@ -1,0 +1,36 @@
+:root {
+    --royal-blue:hwb(219 11% 1%);
+    --lime:hsl(125, 100%, 37%); 
+    --eggshell: hsl(30, 25%, 94%);
+    --pure: hwb(0 100% 0%);
+}
+
+.zs-header {
+    font-size: 200%;
+    color: var(--eggshell);
+    background-color: var(--lime);
+    height: 50px;
+    width: 100%;
+}
+
+html body {
+    background-color: var(--eggshell);
+}
+
+.zs-card {
+    border-radius: 10px;
+    box-shadow: 5px 2px 5px grey;
+    width: 300px;
+}
+
+.zs-card-header {
+    border-radius: 10px 10px 0px 0px;
+    color: var(--pure);
+    background-color: var(--royal-blue);
+}
+
+.zs-card-body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--pure);
+    border-radius: 0px 0px 10px 10px;
+}
