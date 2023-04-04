@@ -15,10 +15,9 @@ describe("Engineer", () => {
             expect(engineer.github).toEqual("randyblankets");
         });
         it("should throw an error if 'github' is not a string", () => {
-            const cb = new Engineer("Randy", 6, "randy@gmail.com", 85);
             const err = new Error("Expected parameter 'github' to be a string");
       
-            expect(cb).toThrowError(err);
+            expect(() => new Engineer("Randy", 6, "randy@gmail.com", 85)).toThrowError(err);
         });
         it("should override 'role' to have the value 'Engineer'", () => {
             const engineer = new Engineer("Randy", 6, "randy@gmail.com", "randyblankets");

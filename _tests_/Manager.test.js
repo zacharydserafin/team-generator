@@ -14,6 +14,18 @@ describe("Manager", () => {
 
             expect(manager.officeNumber).toEqual(55);
         });
+        it("should throw an error if 'officeNumber' is not a number", () => {
+            const cb = () => new Manager("John", 5, "john@gmail.com", "55");
+            const err = new Error("Expected parameter 'officeNumber' to be a positive number");
+      
+            expect(cb).toThrowError(err);
+        });
+        it("should throw an error if 'officeNumber' is not a positive number", () => {
+            const cb = () => new Manager("John", 5, "john@gmail.com", -55);
+            const err = new Error("Expected parameter 'officeNumber' to be a positive number");
+      
+            expect(cb).toThrowError(err);
+        });
         it("should override 'role' to have the value 'Manager'", () => {
             const manager = new Manager("John", 5, "john@gmail.com", 55);
 
