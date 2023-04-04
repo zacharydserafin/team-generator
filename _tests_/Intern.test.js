@@ -15,10 +15,9 @@ describe("Intern", () => {
             expect(intern.school).toEqual("Yale");
         });
         it("should throw an error if 'school' is not a string", () => {
-            const cb = new Intern("Gerald", 7, "gerald@gmail.com", 85);
             const err = new Error("Expected parameter 'school' to be a string");
-      
-            expect(cb).toThrowError(err);
+              
+            expect(() => new Intern("Gerald", 7, "gerald@gmail.com", 85)).toThrowError(err);
         });
         it("should override 'role' to have the value 'Intern'", () => {
             const intern = new Intern("Gerald", 7, "gerald@gmail.com", "Yale");
