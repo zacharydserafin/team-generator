@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const generateHTML = require("./src/template");
 
 var team = [];
 var engineers = [];
@@ -37,13 +38,14 @@ function selectNextAction() {
     inquirer
         .prompt([
         {
+            name: 'choice',
             type: 'list',
             message: "What would you like to do next?",
             choices: ['Add Engineer', 'Add Intern', 'Finish Building Team']
         }
         ])
         .then((choice) => {
-            switch (choice) {
+            switch (choice.choice) {
                 case 'Add Engineer':
                     getEngineer();
                     break;
@@ -82,7 +84,7 @@ function getEngineer() {
             },
         ])
         .then((answers) => {
-            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            const engineer = new Engineer(answers.name, parseInt(answers.id), answers.email, answers.github);
             engineers.push(engineer);
             selectNextAction();
         });   
@@ -113,7 +115,7 @@ function getIntern() {
             },
         ])
         .then((answers) => {
-            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+            const intern = new Intern(answers.name, parseInt(answers.id), answers.email, answers.school);
             interns.push(intern);
             selectNextAction();
         });   
@@ -126,16 +128,17 @@ function dataCompile() {
     if (interns !== []) {
     team.push(...interns);
     }
-    //Placeholder until generate HTML function is created
-    console.log(team);
+    generateHTML(team);
 }
 
 function init() {
     getManager().then((data) => {
-        const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+        const manager = new Manager(data.name, parseInt(data.id), data.email, parseInt(data.officeNumber));
         team.push(manager);
         selectNextAction();
     });
 }
 
 init();
+
+module.exports = team;
