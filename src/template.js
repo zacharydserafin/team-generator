@@ -13,7 +13,9 @@ function createCards(team) {
                 </div>
                 <div class="p-2 zs-card-body">
                     <p>ID: ${member.id}</p>
-                    <p>Email: ${member.email}</p>
+                    <p>Email: 
+                        <a href="mailto: ${member.email}">${member.email}</a>
+                    </p>
                     <p>Office Number: ${member.officeNumber}</p>
                 </div>
             </div>`;
@@ -28,8 +30,12 @@ function createCards(team) {
                 </div>
                 <div class="p-2 zs-card-body">
                     <p>ID: ${member.id}</p>
-                    <p>Email: ${member.email}</p>
-                    <p>GitHub: ${member.github}</p>
+                    <p>Email: 
+                        <a href="mailto: ${member.email}">${member.email}</a>
+                    </p>
+                    <p>GitHub: 
+                        <a href="https://github.com/${member.github}">${member.github}</a>
+                    </p>
                 </div>
             </div>`;
             cards.push(engineerHTML);
@@ -43,7 +49,9 @@ function createCards(team) {
                 </div>
                 <div class="p-2 zs-card-body">
                     <p>ID: ${member.id}</p>
-                    <p>Email: ${member.email}</p>
+                    <p>Email: 
+                        <a href="mailto: ${member.email}">${member.email}</a>
+                    </p>
                     <p>School: ${member.school}</p>
                 </div>
             </div>`;
